@@ -6,7 +6,7 @@ This project simulates a complete, security-focused enterprise IT environment. B
 Core Technologies: Windows Server 2022, Active Directory, Group Policy, VMware, NTFS/Share Permissions, File Server Resource Manager (FSRM).
 
 ## **Lab Architecture & Implementation**
-1. Active Directory & Identity Management
+### **1. Active Directory & Identity Management**
 The foundation is a structured Active Directory Domain Services forest (`mydomain.local`), designed for security and manageability.
 
 *   **Organizational Unit (OU) Structure:** Implemented a logical OU hierarchy to separate users, computers, and security groups for precise management and policy targeting, as shown in the screenshot below.
@@ -16,7 +16,7 @@ The foundation is a structured Active Directory Domain Services forest (`mydomai
     ![User Group Membership for RBAC](https://github.com/Shahd34/Enterprise-IT-Infrastructure-Lab/raw/main/images/user-group-membership.png)
     
 
-2. Group Policy & Security Configuration
+### **2. Group Policy & Security Configuration**
 Group Policy Objects (GPOs) were deployed to enforce security baselines, configure user environments, and automate settings across the domain.
 
 *   **Layered GPO Strategy:**
@@ -30,7 +30,7 @@ Group Policy Objects (GPOs) were deployed to enforce security baselines, configu
 
 ![GPO Item-Level Targeting](https://github.com/Shahd34/Enterprise-IT-Infrastructure-Lab/raw/main/images/gpo-targeting.png)
 
-3. Enterprise File Services
+### **3. Enterprise File Services**
 A dedicated file server role was configured to provide secure, managed storage for departmental and company-wide data.
 
 Departmental Share Structure: Created a shared folder (\\WIN-EGP61EA308B\Company) with subfolders for Finance, Marketing, IT, and Public data.
@@ -47,7 +47,7 @@ File Screening: Implemented an active file screen on the Finance share to block 
 
 ![FSRM Quota](https://github.com/Shahd34/Enterprise-IT-Infrastructure-Lab/raw/main/images/fsrm-quota.png)
 
-4. Security & Operational Practices
+### **4. Security & Operational Practices**
 The lab was designed with a security-first mindset, simulating real-world operational controls.
 
 Security Principle Application: Practiced core security concepts throughout the lab, including implementing Role-Based Access Control (RBAC) via security groups for file shares and enforcing the principle of least privilege through NTFS permissions and restrictive GPOs for IT accounts.
