@@ -46,9 +46,13 @@ Group Policy Objects (GPOs) were deployed to enforce security baselines, configu
 
 Layered GPO Strategy:
 
-Corp_Workstation_Baseline: Applied to all computers to enable firewall and set a secure lock screen message.
+Corp_Workstation_Baseline: Applied to all computers to establish fundamental security by enabling the Windows Firewall (Domain profile) and disabling the built-in Windows Guest account.
 
-Finance_Secure_Workstations: Targeted the Finance-WS OU to disable USB storage, and enable detailed file audit logging.
+Finance_Secure_Workstations: Targeted the Finance-WS OU to enforce stricter controls, including disabling USB removable storage drives and enabling detailed audit logging for file access.
+
+User_Password_Policy: Enforced company-wide password rules, including a minimum length of 8 characters, a history of 4 remembered passwords, and a maximum password age of 60 days.
+
+IT_Admin_Restrictions: Applied to IT user accounts to enhance operational security by denying "logon as a batch job" rights and preventing the installation of kernel-mode printer drivers.
 
 Corp_Drive_Maps: A centralized GPO linked to the parent Users OU. It uses Item-Level Targeting to dynamically map network drives (e.g., F: to \\WIN-EGP61EA308B\Company\Finance) only for members of specific security groups.
 
@@ -61,7 +65,7 @@ A dedicated file server role was configured to provide secure, managed storage f
 
 Departmental Share Structure: Created a shared folder (\\WIN-EGP61EA308B\Company) with subfolders for Finance, Marketing, IT, and Public data.
 
-NTFS & Share Permissions: Implemented the principle of least privilege by assigning Modify NTFS permissions to department-specific security groups (e.g., FileServer_Finance_RW). Configured restrictive Share permissions and enabled Access-Based Enumeration (ABE) so users only see folders they can access.
+NTFS & Share Permissions: Implemented the principle of least privilege by assigning Modify NTFS permissions to department-specific security groups (e.g., FileServer_Finance_RW). Configured restrictive Share permissions.
 
 ![NTFS Permissions](https://github.com/Shahd34/Enterprise-IT-Infrastructure-Lab/raw/main/images/ntfs-permissions.png)
 
@@ -76,6 +80,6 @@ File Screening: Implemented an active file screen on the Finance share to block 
 4. Security & Operational Practices
 The lab was designed with a security-first mindset, simulating real-world operational controls.
 
-Privileged Access Management: Created a dedicated Helpdesk_Admins group with delegated permissions, avoiding the use of Domain Admin accounts for daily tasks. Applied restrictive GPOs to IT user accounts.
+Security Principle Application: Practiced core security concepts throughout the lab, including implementing Role-Based Access Control (RBAC) via security groups for file shares and enforcing the principle of least privilege through NTFS permissions and restrictive GPOs for IT accounts.
 
 Auditing & Monitoring: Enabled audit policies to log file access on sensitive shares.
