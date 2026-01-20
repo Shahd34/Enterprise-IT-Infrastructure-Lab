@@ -36,11 +36,11 @@ mydomain.Local (Domain)
 │
 └── Admins (OU)                     → admin.carter (user)
 
-https://images/ad-ou-structure.png
+![Active Directory OU Structure](https://github.com/Shahd34/Enterprise-IT-Infrastructure-Lab/raw/main/images/ad-ou-structure.png)
 
 Role-Based Access Control (RBAC): Created security groups (e.g., FileServer_Finance_RW, VPN_Users, Helpdesk_Admins) to manage permissions centrally. User accounts were placed in department OUs and added to relevant groups, demonstrating efficient access management.
 
-https://images/user-group-membership.png
+![User Group Membership for RBAC](https://github.com/Shahd34/Enterprise-IT-Infrastructure-Lab/raw/main/images/User-Group-Membership.png)
 
 
 2. Group Policy & Security Configuration
@@ -54,9 +54,9 @@ Finance_Secure_Workstations: Targeted the Finance-WS OU to disable USB storage, 
 
 Corp_Drive_Maps: A centralized GPO linked to the parent Users OU. It uses Item-Level Targeting to dynamically map network drives (e.g., F: to \\WIN-EGP61EA308B\Company\Finance) only for members of specific security groups.
 
-https://images/gpo-management.png
+![Group Policy Management](https://github.com/Shahd34/Enterprise-IT-Infrastructure-Lab/raw/main/images/Group-Policy-Management.png)
 
-https://images/gpo-targeting.png
+![GPO Item-Level Targeting](https://github.com/Shahd34/Enterprise-IT-Infrastructure-Lab/raw/main/images/GPO-Item-Level-Targeting.png)
 
 3. Enterprise File Services
 A dedicated file server role was configured to provide secure, managed storage for departmental and company-wide data.
@@ -65,7 +65,7 @@ Departmental Share Structure: Created a shared folder (\\WIN-EGP61EA308B\Company
 
 NTFS & Share Permissions: Implemented the principle of least privilege by assigning Modify NTFS permissions to department-specific security groups (e.g., FileServer_Finance_RW). Configured restrictive Share permissions and enabled Access-Based Enumeration (ABE) so users only see folders they can access.
 
-https://images/ntfs-permissions.png
+![NTFS Permissions](https://github.com/Shahd34/Enterprise-IT-Infrastructure-Lab/raw/main/images/NTFS-Permissions.png)
 
 File Server Resource Manager (FSRM):
 
@@ -73,7 +73,7 @@ Quota Management: Enforced a 10 GB hard quota on the Finance share with email an
 
 File Screening: Implemented an active file screen on the Finance share to block executable, compressed, and audio/video files, reducing malware risk and ensuring business use.
 
-https://images/fsrm-quota.png
+![FSRM Quota](https://github.com/Shahd34/Enterprise-IT-Infrastructure-Lab/raw/main/images/FSRM-Quota-Management.png)
 
 4. Security & Operational Practices
 The lab was designed with a security-first mindset, simulating real-world operational controls.
