@@ -7,7 +7,7 @@ Core Technologies: Windows Server 2022, Active Directory, Group Policy, VMware, 
 
 ## **Lab Architecture & Implementation**
 1. Active Directory & Identity Management
-The foundation is a structured Active Directory Domain Services forest (`SecureCorp.local`), designed for security and manageability.
+The foundation is a structured Active Directory Domain Services forest (`mydomain.local`), designed for security and manageability.
 
 *   **Organizational Unit (OU) Structure:** Implemented a logical OU hierarchy to separate users, computers, and security groups for precise management and policy targeting, as shown in the screenshot below.
     ![Active Directory OU Structure](https://github.com/Shahd34/Enterprise-IT-Infrastructure-Lab/raw/main/images/ad-ou-structure.png)
