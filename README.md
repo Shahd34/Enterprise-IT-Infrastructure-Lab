@@ -3,7 +3,7 @@
 ## **Project Objective & Relevance**
 This project simulates a complete, security-focused enterprise IT environment. Built from scratch using Windows Server 2022, it encompasses core infrastructure services including Active Directory, Group Policy, file services, and security hardening. The goal was to develop practical, hands-on skills in system administration and security, moving beyond theoretical knowledge.
 
-Core Technologies: Windows Server 2022, Active Directory, Group Policy, VMware/VirtualBox, NTFS/Share Permissions, File Server Resource Manager (FSRM).
+Core Technologies: Windows Server 2022, Active Directory, Group Policy, VMware, NTFS/Share Permissions, File Server Resource Manager (FSRM).
 
 ## **Lab Architecture & Implementation**
 1. Active Directory & Identity Management
