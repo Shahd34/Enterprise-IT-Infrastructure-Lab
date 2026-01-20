@@ -7,54 +7,24 @@ Core Technologies: Windows Server 2022, Active Directory, Group Policy, VMware/V
 
 ## **Lab Architecture & Implementation**
 1. Active Directory & Identity Management
-The foundation of the environment is a structured Active Directory Domain Services forest (mydomain.local), designed with scalability and security best practices in mind.
+The foundation is a structured Active Directory Domain Services forest (`SecureCorp.local`), designed for security and manageability.
 
-*   **Organizational Unit (OU) Structure:** Implemented a logical OU hierarchy to separate users, computers, and security groups for precise management.
-    ```
-    mydomain.Local
-    ├── Corporate
-    │   ├── Users
-    │   │   ├── Finance           # john.doe, jane.smith
-    │   │   ├── Marketing         # michael.chan, sara.jones
-    │   │   └── IT                # alex.taylor
-    │   ├── Computers
-    │   │   ├── Finance-WS
-    │   │   ├── Marketing-WS
-    │   │   └── IT-WS
-    │   └── Groups               # Centralized Security Groups
-    │       ├── Finance_Users
-    │       ├── Marketing_Users
-    │       ├── IT_Users
-    │       ├── FileServer_Finance_RW
-    │       ├── FileServer_Marketing_RO
-    │       ├── VPN_Users
-    │       └── Helpdesk_Admins
-    └── Admins                   # admin.carter
-    ```
+*   **Organizational Unit (OU) Structure:** Implemented a logical OU hierarchy to separate users, computers, and security groups for precise management and policy targeting, as shown in the screenshot below.
+    ![Active Directory OU Structure](https://github.com/Shahd34/Enterprise-IT-Infrastructure-Lab/raw/main/images/ad-ou-structure.png)
 
-*   **Role-Based Access Control (RBAC):** Users in department OUs were added to corresponding security groups to control access. For example, `john.doe` in the Finance OU is a member of `FileServer_Finance_RW`, granting modify permissions to the Finance file share.
-
-![Active Directory OU Structure](https://github.com/Shahd34/Enterprise-IT-Infrastructure-Lab/raw/main/images/ad-ou-structure.png)
-
-Role-Based Access Control (RBAC): Created security groups (e.g., FileServer_Finance_RW, VPN_Users, Helpdesk_Admins) to manage permissions centrally. User accounts were placed in department OUs and added to relevant groups, demonstrating efficient access management.
-
-![User Group Membership for RBAC](https://github.com/Shahd34/Enterprise-IT-Infrastructure-Lab/raw/main/images/user-group-membership.png)
-
+*   **Role-Based Access Control (RBAC) Implementation:** This structure enabled a role-based access model. Users placed in department OUs (e.g., `john.doe` in Finance) were added to specific security groups (e.g., `FileServer_Finance_RW`) to grant permissions to resources like file shares. The image below shows the group membership for a sample user.
+    ![User Group Membership for RBAC](https://github.com/Shahd34/Enterprise-IT-Infrastructure-Lab/raw/main/images/user-group-membership.png)
+    
 
 2. Group Policy & Security Configuration
 Group Policy Objects (GPOs) were deployed to enforce security baselines, configure user environments, and automate settings across the domain.
 
-Layered GPO Strategy:
-
-Corp_Workstation_Baseline: Applied to all computers to establish fundamental security by enabling the Windows Firewall (Domain profile) and disabling the built-in Windows Guest account.
-
-Finance_Secure_Workstations: Targeted the Finance-WS OU to enforce stricter controls, including disabling USB removable storage drives and enabling detailed audit logging for file access.
-
-User_Password_Policy: Enforced company-wide password rules, including a minimum length of 8 characters, a history of 4 remembered passwords, and a maximum password age of 60 days.
-
-IT_Admin_Restrictions: Applied to IT user accounts to enhance operational security by denying "logon as a batch job" rights and preventing the installation of kernel-mode printer drivers.
-
-Corp_Drive_Maps: A centralized GPO linked to the parent Users OU. It uses Item-Level Targeting to dynamically map network drives (e.g., F: to \\WIN-EGP61EA308B\Company\Finance) only for members of specific security groups.
+*   **Layered GPO Strategy:**
+    *   **`Corp_Workstation_Baseline`:** Applied to all computers to establish fundamental security by enabling the Windows Firewall (Domain profile) and disabling the built-in Windows Guest account.
+    *   **`Finance_Secure_Workstations`:** Targeted the `Finance-WS` OU to enforce stricter controls, including disabling USB removable storage drives and enabling detailed audit logging for file access.
+    *   **`User_Password_Policy`:** Enforced company-wide password rules, including a minimum length of 8 characters, a history of 4 remembered passwords, and a maximum password age of 60 days.
+    *   **`IT_Admin_Restrictions`:** Applied to IT user accounts to enhance operational security by denying "logon as a batch job" rights and preventing the installation of kernel-mode printer drivers.
+    *   **`Corp_Drive_Maps`:** A centralized GPO linked to the parent `Users` OU. It uses **Item-Level Targeting** to dynamically map network drives (e.g., `F:` to `\\SERVER\Company\Finance`) only for members of specific security groups.
 
 ![Group Policy Management](https://github.com/Shahd34/Enterprise-IT-Infrastructure-Lab/raw/main/images/gpo-management.png)
 
