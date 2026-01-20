@@ -24,7 +24,7 @@ Group Policy Objects (GPOs) were deployed to enforce security baselines, configu
     *   **`Finance_Secure_Workstations`:** Targeted the `Finance-WS` OU to enforce stricter controls, including disabling USB removable storage drives and enabling detailed audit logging for file access.
     *   **`User_Password_Policy`:** Enforced company-wide password rules, including a minimum length of 8 characters, a history of 4 remembered passwords, and a maximum password age of 60 days.
     *   **`IT_Admin_Restrictions`:** Applied to IT user accounts to enhance operational security by denying "logon as a batch job" rights and preventing the installation of kernel-mode printer drivers.
-    *   **`Corp_Drive_Maps`:** A centralized GPO linked to the parent `Users` OU. It uses **Item-Level Targeting** to dynamically map network drives (e.g., `F:` to `\\SERVER\Company\Finance`) only for members of specific security groups.
+    *   **`Corp_Drive_Maps`:** A centralized GPO linked to the parent `Users` OU. It uses **Item-Level Targeting** to map network drives (e.g., `F:` to `\\SERVER\Company\Finance`) only for members of specific security groups.
 
 ![Group Policy Management](https://github.com/Shahd34/Enterprise-IT-Infrastructure-Lab/raw/main/images/gpo-management.png)
 
