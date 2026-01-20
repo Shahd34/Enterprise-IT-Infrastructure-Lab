@@ -78,16 +78,12 @@ The lab was designed with a security-first mindset, simulating real-world operat
 
 Privileged Access Management: Created a dedicated Helpdesk_Admins group with delegated permissions, avoiding the use of Domain Admin accounts for daily tasks. Applied restrictive GPOs to IT user accounts.
 
-Auditing & Monitoring: Enabled audit policies to log file access on sensitive shares and configured logon scripts for basic access tracking.
-
-Troubleshooting & Recovery: Practiced core helpdesk workflows, such as resolving "access denied" issues by verifying group membership and permission inheritance. Successfully performed domain controller recovery and password resets using Windows Recovery Environment tools.
+Auditing & Monitoring: Enabled audit policies to log file access on sensitive shares.
 
 ## **Skills Demonstrated**
 System Administration: Active Directory design, user/group management, Group Policy deployment.
 
 Security Hardening: RBAC, least privilege, quota/file screening, audit policy, privileged access management.
-
-Scripting & Automation: PowerShell for AD automation and task scripting.
 
 Network Services: DHCP scope configuration, DNS, file sharing, and permissions management.
 
