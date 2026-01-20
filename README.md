@@ -79,12 +79,3 @@ The lab was designed with a security-first mindset, simulating real-world operat
 Privileged Access Management: Created a dedicated Helpdesk_Admins group with delegated permissions, avoiding the use of Domain Admin accounts for daily tasks. Applied restrictive GPOs to IT user accounts.
 
 Auditing & Monitoring: Enabled audit policies to log file access on sensitive shares.
-
-## **Skills Demonstrated**
-System Administration: Active Directory design, user/group management, Group Policy deployment.
-
-Security Hardening: RBAC, least privilege, quota/file screening, audit policy, privileged access management.
-
-Network Services: DHCP scope configuration, DNS, file sharing, and permissions management.
-
-Problem-Solving: Methodical troubleshooting of authentication, permission, and Group Policy application issues.
