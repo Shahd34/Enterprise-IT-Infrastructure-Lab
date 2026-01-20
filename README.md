@@ -9,32 +9,30 @@ Core Technologies: Windows Server 2022, Active Directory, Group Policy, VMware/V
 1. Active Directory & Identity Management
 The foundation of the environment is a structured Active Directory Domain Services forest (mydomain.local), designed with scalability and security best practices in mind.
 
-Organizational Unit (OU) Structure: Implemented a logical OU hierarchy to separate users, computers, and administrators, enabling precise Group Policy targeting and delegated administration.
+*   **Organizational Unit (OU) Structure:** Implemented a logical OU hierarchy to separate users, computers, and security groups for precise management.
+    ```
+    SecureCorp.Local
+    ├── Corporate
+    │   ├── Users
+    │   │   ├── Finance           # john.doe, jane.smith
+    │   │   ├── Marketing         # michael.chan, sara.jones
+    │   │   └── IT                # alex.taylor
+    │   ├── Computers
+    │   │   ├── Finance-WS
+    │   │   ├── Marketing-WS
+    │   │   └── IT-WS
+    │   └── Groups               # Centralized Security Groups
+    │       ├── Finance_Users
+    │       ├── Marketing_Users
+    │       ├── IT_Users
+    │       ├── FileServer_Finance_RW
+    │       ├── FileServer_Marketing_RO
+    │       ├── VPN_Users
+    │       └── Helpdesk_Admins
+    └── Admins                   # admin.carter
+    ```
 
-mydomain.Local (Domain)
-│
-├── Corporate (OU)
-│   │
-│   ├── Users (OU)
-│   │   ├── Finance (OU)           → john.doe, jane.smith (user)
-│   │   ├── Marketing (OU)         → michael.chan, sara.jones (user)
-│   │   └── IT (OU)                → alex.taylor (user)
-│   │
-│   ├── Computers (OU)
-│   │   ├── Finance-WS (OU)
-│   │   ├── Marketing-WS (OU)
-│   │   └── IT-WS (OU)
-│   │
-│   └── Groups (OU)              
-│       ├── Finance_Users (Group)
-│       ├── Marketing_Users (Group)
-│       ├── IT_Users (Group)
-│       ├── FileServer_Finance_RW (Group)
-│       ├── FileServer_Marketing_RO (Group)
-│       ├── VPN_Users (Group)
-│       └── Helpdesk_Admins (Group)
-│
-└── Admins (OU)                     → admin.carter (user)
+*   **Role-Based Access Control (RBAC):** Users in department OUs were added to corresponding security groups to control access. For example, `john.doe` in the Finance OU is a member of `FileServer_Finance_RW`, granting modify permissions to the Finance file share.
 
 ![Active Directory OU Structure](https://github.com/Shahd34/Enterprise-IT-Infrastructure-Lab/raw/main/images/ad-ou-structure.png)
 
