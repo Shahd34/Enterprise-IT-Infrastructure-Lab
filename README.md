@@ -35,7 +35,7 @@ A dedicated file server role was configured to provide secure, managed storage f
 
 Departmental Share Structure: Created a shared folder (\\WIN-EGP61EA308B\Company) with subfolders for Finance, Marketing, IT, and Public data.
 
-NTFS & Share Permissions: Implemented the principle of least privilege by assigning Modify NTFS permissions to department-specific security groups (e.g., FileServer_Finance_RW). Configured restrictive Share permissions.
+NTFS & Share Permissions: Applied the principle of least privilege by granting access exclusively through department-specific security groups. Configured restrictive Share-level permissions while using precise NTFS permissions to control file-level access.
 
 ![NTFS Permissions](https://github.com/Shahd34/Enterprise-IT-Infrastructure-Lab/raw/main/images/ntfs-permissions.png)
 
