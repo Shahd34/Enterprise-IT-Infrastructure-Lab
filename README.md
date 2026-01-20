@@ -11,7 +11,7 @@ The foundation of the environment is a structured Active Directory Domain Servic
 
 *   **Organizational Unit (OU) Structure:** Implemented a logical OU hierarchy to separate users, computers, and security groups for precise management.
     ```
-    SecureCorp.Local
+    mydomain.Local
     ├── Corporate
     │   ├── Users
     │   │   ├── Finance           # john.doe, jane.smith
