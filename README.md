@@ -10,9 +10,11 @@ Core Technologies: Windows Server 2022, Active Directory, Group Policy, VMware, 
 The foundation is a structured Active Directory Domain Services forest (`mydomain.local`), designed for security and manageability.
 
 *   **Organizational Unit (OU) Structure:** Implemented a logical OU hierarchy to separate users, computers, and security groups for precise management and policy targeting, as shown in the screenshot below.
+*   
     ![Active Directory OU Structure](https://github.com/Shahd34/Enterprise-IT-Infrastructure-Lab/raw/main/images/ad-ou-structure.png)
 
 *   **Role-Based Access Control (RBAC) Implementation:** This structure enabled a role-based access model. Users placed in department OUs (e.g., `john.doe` in Finance) were added to specific security groups (e.g., `FileServer_Finance_RW`) to grant permissions to resources like file shares. The image below shows the group membership for a sample user.
+*   
     ![User Group Membership for RBAC](https://github.com/Shahd34/Enterprise-IT-Infrastructure-Lab/raw/main/images/user-group-membership.png)
     
 
